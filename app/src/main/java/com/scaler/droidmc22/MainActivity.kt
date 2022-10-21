@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
         val etNum2 = findViewById<EditText>(R.id.etNum2)
         val tvResult = findViewById<TextView>(R.id.tvResult)
         val btnGoToWait = findViewById<Button>(R.id.btnGoToWait)
+        val btnGoToDisco = findViewById<Button>(R.id.btnGoToDisco)
 
         btnAdd.setOnClickListener {
             try {
@@ -40,6 +41,11 @@ class MainActivity : AppCompatActivity() {
 
         btnGoToWait.setOnClickListener {
             val intent = Intent(this, WaitActivity::class.java)
+            startActivity(intent)
+        }
+
+        btnGoToDisco.setOnClickListener {
+            val intent = Intent(this, DiscoActivity::class.java)
             startActivity(intent)
         }
 
