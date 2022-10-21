@@ -3,6 +3,7 @@ package com.scaler.droidmc22
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.widget.Button
 import android.widget.TextView
 
@@ -22,9 +23,16 @@ class WaitActivity : AppCompatActivity() {
         btnWait.setOnClickListener {
             tvMessage.text = "Wait for it..."
 
-            Handler().postDelayed({
-                tvMessage.text = "Done!"
-            }, 5000)
+//            Handler().postDelayed({
+//                tvMessage.text = "Done!"
+//            }, 5000)
+
+            Thread {
+                Thread.sleep(5000)
+                runOnUiThread {
+                    tvMessage.text = "Done!"
+                }
+            }.start()
 
         }
 
